@@ -125,12 +125,13 @@ var repeatAlert = false;
 
 
 //Buttons in the (popup).html page  onclicks to the following functions
-selectID() {
+function selectId() {
   alert("Hello there");
-
+  alert("Enter pressed: " + outputString);
+  console.log("sadsd");
 }
 
-endSearch() {
+function endSearch() {
 
 }
 
@@ -139,7 +140,7 @@ document.onkeydown = function(evt) {
   evt = evt || window.event;
   if (evt.keyCode == 27) {
     //This is the escape key when pressed
-    
+
     if (repeatAlert == true) {
       abortTimer();
 
@@ -150,10 +151,11 @@ document.onkeydown = function(evt) {
     alert("Enter pressed: " + outputString);
 
     if (buttonID != "" || buttonClass != "") {
-      chrome.tabs.executeScript(tab.id, {code: "setTimeout(mySearch, 2000);"}
-      , function(response) {
-
-      });
+      // chrome.tabs.executeScript(tab.id, {code: "setTimeout(mySearch, 2000);"}
+      // , function(response) {
+      //
+      // });
+      setTimeout(mySearch, 2000);
       console.log("ENTERED");
       repeatAlert = true;
 
@@ -255,12 +257,12 @@ function abortTimer() { // to be called when you want to stop the timer
   clearTimeout(tid);
 }
 
-chrome.tabs.getSelected(null, function(tab){
-    // chrome.tabs.executeScript(tab.id, {file: "insert.js"}
-    // , function(response) {
-    //
-    // });
-});
+// chrome.tabs.getSelected(null, function(tab){
+//     // chrome.tabs.executeScript(tab.id, {file: "insert.js"}
+//     // , function(response) {
+//     //
+//     // });
+// });
 
 console.log(sec.options);
 console.log("Hello");
